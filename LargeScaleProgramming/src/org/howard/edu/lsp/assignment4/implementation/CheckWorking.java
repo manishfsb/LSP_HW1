@@ -27,6 +27,8 @@ public class CheckWorking {
 		ArrayList <Integer> arr3 = new ArrayList<>();
 
 		
+		
+		
 //		try {
 //			int smallest = 0;
 //			
