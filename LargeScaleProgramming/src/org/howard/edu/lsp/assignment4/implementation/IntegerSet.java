@@ -15,7 +15,7 @@ public class IntegerSet {
 		
 		
 		/**
-		 * 
+		 * getter to get the ArrayList we will be using
 		 * @return the ArrayList 'set' which we will reference to use ArrayList methods 
 		 */
 		public ArrayList<Integer> getSet() {
@@ -23,6 +23,7 @@ public class IntegerSet {
 		}
 		
 		/**
+		 * clears the contents of the set
 		 * empties the IntegerSet, utilizing the ArrayList method to clear the list
 		 */
 		public void clear() {
@@ -30,7 +31,7 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
+		 * calculates the length of the set
 		 * @return length of the IntegerSet, utilizing the method to get size of an ArrayList
 		 */
 		public int length() {
@@ -39,7 +40,7 @@ public class IntegerSet {
 		
 		
 		/**
-		 * 
+		 * checks if two sets are equal
 		 * @param b of type IntegerSet
 		 * @return true if two sets have the same elements in any order, else false
 		 */
@@ -63,7 +64,7 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
+		 * checks if the value is in the set
 		 * @param value of type integer 
 		 * @return true if the IntegerSet contains the value, else false 
 		 */
@@ -73,7 +74,7 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
+		 * finds largest element in the set
 		 * @return the largest element in the IntegerSet
 		 * @throws CustomException if the IntegerSet is empty
 		 */
@@ -103,7 +104,7 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
+		 * finds smallest element in the set
 		 * @return the smallest element in the IntegerSet
 		 * @throws CustomException if the IntegerSet is empty
 		 */
@@ -129,8 +130,9 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * @param item of type int 
 		 * if item is not in the set, add item
+		 * @param item of type int 
+		 * 
 		 */
 		public void add(int item) {
 			if (!this.getSet().contains(item)){
@@ -140,9 +142,9 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
-		 * @param item of type int
 		 * if item is in the set, remove
+		 * @param item of type int
+		 * 
 		 */
 		public void remove(int item) {
 			if (this.contains(item)) {
@@ -151,8 +153,9 @@ public class IntegerSet {
 		}
 		
 		/**
+		 * adds the elements of intSetb to the object that called the method, while still maintaining unique values
 		 * @param intSetb of type IntegerSet
-		 * adds the elements of intSetb to the object that called the method, while still maintaining unique values 
+		 *  
 		 */
 		public void union(IntegerSet intSetb) {
 			if (!this.equals(intSetb)) {
@@ -164,9 +167,9 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
-		 * @param intSetb of type IntegerSet
 		 * changes the elements of the object calling the method to contain values that are in both sets
+		 * @param intSetb of type IntegerSet
+		 * 
 		 */
 		public void intersect(IntegerSet intSetb) {
 			
@@ -184,9 +187,9 @@ public class IntegerSet {
 		}
 		
 		/**
-		 * 
-		 * @param intSetb of type IntegerSet
 		 * changes the elements of the object calling the method to the elements in the object but not in intSetb
+		 * @param intSetb of type IntegerSet
+		 * 
 		 */
 		public void diff(IntegerSet intSetb) {
 			
@@ -208,7 +211,7 @@ public class IntegerSet {
 		}
 			
 		/**
-		 * 
+		 * true if the set is empty, else false
 		 * @return true if the set is empty, else false
 		 */
 		public boolean isEmpty() {
@@ -216,6 +219,7 @@ public class IntegerSet {
 		}
 		
 		/**
+		 * string representation of the set
 		 * @return the string representation of the set
 		 */
 		public String toString() {
