@@ -5,7 +5,8 @@ import java.util.Collections;
 
 /**
  * @author manishbasnet
- *
+ * IntegerSet, using ArrayList enables an object to have set-like attributes like storing unique values and so on.	
+ * Also provides methods to perform set operations like union, intersection and difference 
  */
 
 public class IntegerSet {
@@ -13,36 +14,41 @@ public class IntegerSet {
 		private ArrayList<Integer> set = new ArrayList<>();
 		
 		
-		
 		/**
 		 * 
-		 * @return
+		 * @return the ArrayList 'set' which we will reference to use ArrayList methods 
 		 */
-		
 		public ArrayList<Integer> getSet() {
 			return this.set;
 		}
 		
 		/**
-		 * 
-		 * 
+		 * empties the IntegerSet, utilizing the ArrayList method to clear the list
 		 */
 		public void clear() {
 			this.getSet().clear();
 		}
-			
+		
+		/**
+		 * 
+		 * @return length of the IntegerSet, utilizing the method to get size of an ArrayList
+		 */
 		public int length() {
 			return this.getSet().size();
 				}
 		
 		
+		/**
+		 * 
+		 * @param b of type IntegerSet
+		 * @return true if two sets have the same elements in any order, else false
+		 */
 		public boolean equals(IntegerSet b) {
-			//in case each element in the two arrays are the same
-			
 			if (b.length() != this.length()){
 				return false;	
 			}
 			
+			//sorting the two ArrayLists and then checking each index 
 			Collections.sort(this.getSet());
 			Collections.sort(b.getSet());
 			
@@ -56,19 +62,28 @@ public class IntegerSet {
 			
 		}
 		
+		/**
+		 * 
+		 * @param value of type integer 
+		 * @return true if the IntegerSet contains the value, else false 
+		 */
+		
 		public boolean contains(int value) {
-			if (this.getSet().contains(value)){
-			return true;
-			}
-			
-			return false;
-			
+			return this.getSet().contains(value);
 		}
 		
-//		throw exception if the set is empty
+		/**
+		 * 
+		 * @return the largest element in the IntegerSet
+		 * @throws CustomException if the IntegerSet is empty
+		 */
 		public int largest() throws CustomException{
 			
-			int greatest = (int) Float.NEGATIVE_INFINITY; 
+			//initializing the integer greatest to - infinity to make sure there are larger elements in the IntegerSet
+			int greatest = (int) Float.NEGATIVE_INFINITY;
+			
+
+//			throw exception if the set is empty
 			if (this.isEmpty()){
 				throw new CustomException("An empty set can't have largest element!");
 				
@@ -87,9 +102,16 @@ public class IntegerSet {
 		
 		}
 		
-//		throw exception if empty
+		/**
+		 * 
+		 * @return the smallest element in the IntegerSet
+		 * @throws CustomException if the IntegerSet is empty
+		 */
 		public int smallest() throws CustomException {
 			int least = (int) Float.POSITIVE_INFINITY;
+			
+
+//			throw exception if empty
 			if (this.isEmpty()) {
 				throw new CustomException("An empty set can't have smallest element!");
 			}
@@ -106,6 +128,10 @@ public class IntegerSet {
 			}			
 		}
 		
+		/**
+		 * @param item of type int 
+		 * if item is not in the set, add item
+		 */
 		public void add(int item) {
 			if (!this.getSet().contains(item)){
 				this.getSet().add(item);
@@ -113,55 +139,87 @@ public class IntegerSet {
 			}
 		}
 		
+		/**
+		 * 
+		 * @param item of type int
+		 * if item is in the set, remove
+		 */
 		public void remove(int item) {
-			if (this.set.contains(item)) {
-				Integer item1 = item;
-				this.set.remove(item1);
+			if (this.contains(item)) {
+				this.getSet().remove(this.getSet().indexOf(item));
 			}
 		}
 		
+		/**
+		 * @param intSetb of type IntegerSet
+		 * adds the elements of intSetb to the object that called the method, while still maintaining unique values 
+		 */
 		public void union(IntegerSet intSetb) {
 			if (!this.equals(intSetb)) {
 				
-			for (int bIndex = 0; bIndex < intSetb.getSet().size(); bIndex ++) {
-				this.add(intSetb.getSet().get(bIndex));
-			}	
-		}
+				for (int bIndex = 0; bIndex < intSetb.getSet().size(); bIndex ++) {
+					this.add(intSetb.getSet().get(bIndex));
+				}	
+			}
 		}
 		
+		/**
+		 * 
+		 * @param intSetb of type IntegerSet
+		 * changes the elements of the object calling the method to contain values that are in both sets
+		 */
 		public void intersect(IntegerSet intSetb) {
 			
-			if (!this.equals(intSetb)) {
+			int i = 0;
+			while (i <getSet().size()) {
+				Integer j = getSet().get(i);
+				if (!intSetb.contains(j)) {
+					getSet().remove(j);
+				} 
 				
-				for (int bIndex = 0; bIndex < this.getSet().size(); bIndex ++) {
-					int elem = this.getSet().get(bIndex);
-
-					if (!intSetb.contains(elem)) {
-						this.remove(elem);
-					}
-				}	
-		}
+				else {
+					i ++;
+				}
+			}
 		}
 		
+		/**
+		 * 
+		 * @param intSetb of type IntegerSet
+		 * changes the elements of the object calling the method to the elements in the object but not in intSetb
+		 */
 		public void diff(IntegerSet intSetb) {
 			
-			if (!this.equals(intSetb)){
-		
-				for (int j : this.getSet()) {
+			if (!equals(intSetb)) {
+			int i = 0;
+				while (i <getSet().size()) {
+					Integer j = getSet().get(i);
+					
 					if (intSetb.contains(j)) {
-						this.remove(j);
+						getSet().remove(j);
+					}
+					
+					else {
+						i ++;
 					}
 				}
-			}	
+			}
 			
 		}
 			
+		/**
+		 * 
+		 * @return true if the set is empty, else false
+		 */
 		public boolean isEmpty() {
 			return this.getSet().isEmpty();
 		}
 		
+		/**
+		 * @return the string representation of the set
+		 */
 		public String toString() {
-			return this.set.toString();
+			return this.getSet().toString();
 		}
 	
 	}
