@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"org.howard.edu.lsp.assignment4.implementation","l":"CustomException"},{"p":"org.howard.edu.lsp.assignment4.implementation","l":"IntegerSet"},{"p":"org.howard.edu.lsp.assignment4.test","l":"Test"}];updateSearchResults();
