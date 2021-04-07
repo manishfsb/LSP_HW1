@@ -166,9 +166,9 @@ public class Test {
 		
 		
 		//testcase1 where length of set1 < length of set2
-		int[] c = new int[] {-4,5, 5};
+		int[] c = new int[] {1,2,3, 4, 5};
 		
-		int[] d = new int[] {1,2,3, 2, 3};
+		int[] d = new int[] {1,2,3, 4, 5};
 		
 		for (int i = 0; i < c.length; i ++) {
 			testObject.add(c[i]);

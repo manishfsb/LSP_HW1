@@ -49,12 +49,9 @@ public class IntegerSet {
 				return false;	
 			}
 			
-			//sorting the two ArrayLists and then checking each index 
-			Collections.sort(this.getSet());
-			Collections.sort(b.getSet());
 			
-			for (int index = 0; index < b.length(); index ++) {
-				if (b.getSet().get(index) != this.getSet().get(index)) {
+			for (int elem: getSet()) {
+				if (!b.contains(elem)) {
 					return false;
 				}
 				
