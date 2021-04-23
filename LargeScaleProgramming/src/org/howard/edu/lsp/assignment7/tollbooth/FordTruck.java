@@ -2,7 +2,7 @@ package org.howard.edu.lsp.assignment7.tollbooth;
 
 public class FordTruck extends Truck{
 
-	FordTruck(int Axles, int truckWeight) {
+	public FordTruck(int Axles, int truckWeight) {
 		super(Axles, truckWeight);
 		
 	}

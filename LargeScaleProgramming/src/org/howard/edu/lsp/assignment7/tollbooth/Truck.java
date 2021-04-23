@@ -9,19 +9,19 @@ public abstract class Truck {
 		this.weight = truckWeight;
 	}
 	
-	int getWeight() {
+	public int getWeight() {
 		return this.weight;
 	}
 	
-	void setWeight(int value) {
+	public void setWeight(int value) {
 		this.weight = value;
 	}
 	
-	int getAxles() {
+	public int getAxles() {
 		return this.axle;
 	}
 	
-	void setAxles(int value) {
+	public void setAxles(int value) {
 		this.axle = value;
 	}
 }

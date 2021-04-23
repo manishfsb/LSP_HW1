@@ -1,7 +1,12 @@
-package org.howard.edu.lsp.assignment7.tollbooth;
+package org.howard.edu.lsp.assignment7.junit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.howard.edu.lsp.assignment7.tollbooth.AlleghenyTollBooth;
+import org.howard.edu.lsp.assignment7.tollbooth.FordTruck;
+import org.howard.edu.lsp.assignment7.tollbooth.NissanTruck;
+import org.howard.edu.lsp.assignment7.tollbooth.TollBooth;
+import org.howard.edu.lsp.assignment7.tollbooth.Truck;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -2,7 +2,7 @@ package org.howard.edu.lsp.assignment7.tollbooth;
 
 public class NissanTruck extends Truck{
 	
-	NissanTruck(int NumberAxles, int TruckWeight){
+	public NissanTruck(int NumberAxles, int TruckWeight){
 		super(NumberAxles, TruckWeight);
 	}
 	
